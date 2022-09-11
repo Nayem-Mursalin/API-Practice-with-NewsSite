@@ -3,6 +3,7 @@ const blogSelector = document.getElementById('blog-select');
 const newsSelector = document.getElementById('news-select');
 const newsNavigation = document.getElementById('news-navigator-list');
 const categoryHome = document.getElementById('home-button');
+const cardShower = document.getElementById("card-shower");
 
 //Navbar Active and Inactive 
 
@@ -56,21 +57,24 @@ const newsLoader = (data, id) => {
                 data.data.news_category[id - 1].category_name;
         })
 
-    //if (data.length > 0) {
-    // document.getElementById()
-    // console.log("data length is ", data.length);
-    //console.log("Yes");
-    const cardShower = document.getElementById("card-shower");
-    cardShower.innerText = "";
-    console.log("nayem");
-    data.forEach(items => {
-        console.log("Yes");
-        const divs = document.createElement("div");
-        divs.innerHTML = `
+    if (data.length > 0) {
+        // document.getElementById()
+        // console.log("data length is ", data.length);
+        //console.log("Yes");
+        cardShower.innerText = "";
+        //console.log("nayem");
+        data.forEach(items => {
+            console.log("Yes");
+            const divs = document.createElement("div");
+            divs.innerHTML = `
             <div class="card mb-3">
             <div class="row">
               <div class="col col-3 m-auto">
-               
+                <img
+                src="${items.image_url}"
+                class="card-img-left rounded img-thumbnail"
+                alt="..."
+                />
               </div>
               <div class="card-body col col-9">
                 <h5 class="card-title">
@@ -83,13 +87,19 @@ const newsLoader = (data, id) => {
             </div>
           </div>
             `;
-        cardShower.appendChild(divs);
-    })
+            cardShower.appendChild(divs);
+        })
+    }
+    //Error handelling
+    else {
+        //console.log("nothing");
+        cardShower.innerHTML = `
+            <div class="text-center mt-5 text-danger">
+                <P>There is No Data in this category</P>
+            </div>
+                `;
+    }
 }
-
-//else {
-//  console.log("nothing");
-//}}
 
 
 loadNavigation();
