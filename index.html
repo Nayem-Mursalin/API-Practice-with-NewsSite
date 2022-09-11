@@ -35,21 +35,36 @@
     </header>
     <!-- header Section End -->
     <main>
+        <section>
+            <div class="bg-light">
+                <p>
+                    There Are <span id="number-of-category">0</span> items
+                    in <span id="category-name">Home</span>.
+                </p>
+            </div>
+        </section>
+        <!-- category list -->
         <section id="news-navigator">
             <ul id="news-navigator-list" class="nav justify-content-center">
-
+                <li>
+                    <a onclick="newsFetch(8)" class="nav-link active" href="#">Home</a>
+                </li>
             </ul>
         </section>
 
+        <!-- Display card  -->
+        <section id="card-shower">
+
+        </section>
 
 
 
 
     </main>
 
-
+    <br><br><br>
     <!-- Footer Section Start  -->
-    <footer class="mt-5 text-center w-100 bg-light position-absolute bottom-0 start-50 translate-middle-x">
+    <footer class="mt-5 text-center w-100 bg-light position-fixed bottom-0 start-50 translate-middle-x">
         <p class="p-3">@All Right Reserved by News today</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
