@@ -28,6 +28,16 @@ newsSelector.addEventListener('click', function () {
     //loadNavigation();
     newsFetch(1);
 })
+// Spinner Section
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('loader');
+    if (isLoading) {
+        loaderSection.classList.remove('d-none');
+    }
+    else {
+        loaderSection.classList.add('d-none');
+    }
+}
 
 //fetch data in navigation list
 const loadNavigation = async id => {
@@ -42,7 +52,7 @@ const navigationLoader = (data) => {
         const newsNav = document.createElement('li');
         newsNav.classList.add('nav-item');
         newsNav.innerHTML = `
-         <a onclick="newsFetch(${element.category_id})" class="nav-link" href="#">${element.category_name}</a>
+         <a onclick="newsFetch(${element.category_id}); toggleSpinner(true)" class="nav-link" href="#">${element.category_name}</a>
         `;
         newsNavigation.appendChild(newsNav);
     });
@@ -116,7 +126,9 @@ const newsLoader = (data, id) => {
             </div>
                 `;
     }
+    toggleSpinner(false);
 }
+
 
 
 loadNavigation();
