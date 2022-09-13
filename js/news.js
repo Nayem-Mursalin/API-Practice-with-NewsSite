@@ -58,11 +58,7 @@ const newsLoader = (data, id) => {
         })
 
     if (data.length > 0) {
-        // document.getElementById()
-        // console.log("data length is ", data.length);
-        //console.log("Yes");
         cardShower.innerText = "";
-        //console.log("nayem");
         data.forEach(items => {
             console.log("Yes");
             const divs = document.createElement("div");
@@ -83,7 +79,6 @@ const newsLoader = (data, id) => {
                 <p class="card-text">
                   ${items.details.slice(0, 280)}...
                 </p>
-              </div>
             </div>
           </div>
             `;
