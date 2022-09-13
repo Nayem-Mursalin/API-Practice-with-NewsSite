@@ -1,0 +1,9 @@
+.author{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.author-img{
+    width: 56px;
+    height: 56px;
+}

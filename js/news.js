@@ -90,6 +90,14 @@ const newsLoader = (data, id) => {
                 <p class="card-text">
                   ${items.details.slice(0, 280)}...
                 </p>
+                <div class="card-footer d-flex justify-content-around align-items-center">
+                    <div class="author">
+                        <img class="author-img rounded" src="${items.author.img}" alt="" />
+                        <p style="margin-left: 10px">${items.author.name}</p>
+                    </div>
+                    <div>${items.total_view}</div>
+                    <a class="anchor" href="">=></a>
+                </div>
             </div>
           </div>
             `;
