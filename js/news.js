@@ -108,8 +108,8 @@ const newsLoader = (data, id) => {
                         <img class="author-img rounded" src="${items.author.img}" alt="No Image found" />
                         <p style="margin-left: 10px">${items.author ? items.author.name : "No Name"}</p>
                     </div>
-                    <div class="flex"> <p>Total View : ${items.total_view}</p></div>
-                    <a href="">Details-></a>
+                    <div class="flex"> <p>Viewed : ${items.total_view}</p></div>
+                    <a href="">Details</a>
                 </div>
             </div>
           </div>
@@ -122,7 +122,7 @@ const newsLoader = (data, id) => {
         //console.log("nothing");
         cardShower.innerHTML = `
             <div class="text-center mt-5 text-danger">
-                <P>There is No Data in this category</P>
+                <P>There is No News in this category</P>
             </div>
                 `;
     }
