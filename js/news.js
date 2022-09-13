@@ -70,6 +70,9 @@ const newsLoader = (data, id) => {
 
     if (data.length > 0) {
         cardShower.innerText = "";
+        data.sort((a, b) => {
+            return b.total_view - a.total_view;
+        });
         data.forEach(items => {
             console.log("Yes");
             const divs = document.createElement("div");
@@ -92,11 +95,11 @@ const newsLoader = (data, id) => {
                 </p>
                 <div class="card-footer d-flex justify-content-around align-items-center">
                     <div class="author">
-                        <img class="author-img rounded" src="${items.author.img}" alt="" />
-                        <p style="margin-left: 10px">${items.author.name}</p>
+                        <img class="author-img rounded" src="${items.author.img}" alt="No Image found" />
+                        <p style="margin-left: 10px">${items.author ? items.author.name : "No Name"}</p>
                     </div>
-                    <div>${items.total_view}</div>
-                    <a class="anchor" href="">=></a>
+                    <div class="flex"> <p>Total View : ${items.total_view}</p></div>
+                    <a href="">Details-></a>
                 </div>
             </div>
           </div>
