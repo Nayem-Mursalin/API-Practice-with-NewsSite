@@ -1,9 +1,11 @@
 //Declaring variable and Getting Element ID
+const blog = document.getElementById('blog');
 const blogSelector = document.getElementById('blog-select');
 const newsSelector = document.getElementById('news-select');
 const newsNavigation = document.getElementById('news-navigator-list');
 const categoryHome = document.getElementById('home-button');
 const cardShower = document.getElementById("card-shower");
+const newsCount = document.getElementById("news-count");
 
 //Navbar Active and Inactive 
 
@@ -11,11 +13,20 @@ blogSelector.addEventListener('click', function () {
     console.log("Blog Selected");
     blogSelector.classList.add('active');
     newsSelector.classList.remove('active');
+    newsNavigation.classList.add('d-none');
+    cardShower.innerHTML = "";
+    newsCount.classList.add('d-none');
+    blog.classList.remove('d-none');
 })
 newsSelector.addEventListener('click', function () {
     console.log("News Selected");
     blogSelector.classList.remove('active');
     newsSelector.classList.add('active');
+    newsCount.classList.remove('d-none');
+    newsNavigation.classList.remove('d-none');
+    blog.classList.add('d-none');
+    //loadNavigation();
+    newsFetch(1);
 })
 
 //fetch data in navigation list
@@ -65,14 +76,14 @@ const newsLoader = (data, id) => {
             divs.innerHTML = `
             <div class="card mb-3">
             <div class="row">
-              <div class="col col-3 m-auto">
+              <div class="col col-sm-12 col-md-3  m-auto">
                 <img
                 src="${items.image_url}"
                 class="card-img-left rounded img-thumbnail"
                 alt="..."
                 />
               </div>
-              <div class="card-body col col-9">
+              <div class="card-body col col-sm-12 col-md-9">
                 <h5 class="card-title">
                   ${items.title}
                 </h5>
